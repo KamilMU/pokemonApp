@@ -1,0 +1,20 @@
+.pokemons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: 24px;
+
+    &__pokemon {
+      background: white;
+      border-radius: 5px;
+      box-shadow: 0 0 3px rgba(0,0,0,0.5);
+      padding: 10px;
+      height: auto;
+      width: 100px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }

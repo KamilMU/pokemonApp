@@ -1,8 +1,8 @@
 import React from 'react'
-import { Switch, Route, Link } from 'react-router-dom';
-import styles from "./PokemonNameList.module.css"
+import { Link } from 'react-router-dom';
+import styles from "./PokemonNamesMenu.module.scss"
 
-function PokemonNameList({ pokemons }) {
+function PokemonNamesMenu({ pokemons }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       <strong style={{ fontSize: "27px", marginBottom: "10px" }}>Menu</strong>
@@ -18,4 +18,4 @@ function PokemonNameList({ pokemons }) {
   )
 }
 
-export default PokemonNameList
+export default PokemonNamesMenu

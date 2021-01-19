@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import styles from './Pokemon.module.css';
+import styles from './Pokemon.module.scss';
 
 function Pokemon({ match }) {
   const {
@@ -12,26 +12,30 @@ function Pokemon({ match }) {
   useEffect(() => {
     async function getPokemonApi() {
       await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {})
-      .then((res) => res.json())
-      .then((response) => {
-        setPokemon(response);
-        setIsLoading(false);
-        console.log('111');
-      })
-      .catch((error) => console.log(error));
+        .then((res) => res.json())
+        .then((response) => {
+          setPokemon(response);
+          setIsLoading(false);
+          console.log('111');
+        })
+        .catch((error) => console.log(error));
     }
 
     getPokemonApi()
   }, [id]);
-  console.log(pokemon, 'match')
+
   return (
     <>
-    <Link to="/">
-      Go back
-    </Link>
-    {!isLoading && pokemon && (
+      <Link to="/">
+        Go back
+      </Link>
+      {!isLoading && pokemon && (
         <ul className={styles.pokemon}>
-          <li><b>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</b></li>
+          <li>
+            <b>
+              {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+            </b>
+          </li>
           <li>
             <img src={pokemon.sprites.front_default} />
           </li>

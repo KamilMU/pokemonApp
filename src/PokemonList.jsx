@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import styles from './PokemonList.module.css';
+import styles from './PokemonList.module.scss';
 import { Link } from 'react-router-dom';
-import PokemonNameList from './PokemonNameList.jsx'
+import PokemonNamesMenu from './PokemonNamesMenu.jsx';
 
 function PokemonList() {
   const [pokemons, setPokemons] = useState([])
-  const [pokemonClicked, setPokemonClicked] = useState(false)
 
   useEffect(() => {
     async function getApi() {
@@ -23,10 +22,9 @@ function PokemonList() {
     getApi()
   }, []);
 
-  console.log(pokemons, 'pokemons')
   return (
     <div style={{ display: "flex", height: "100px", width: "100%" }}>
-      <PokemonNameList pokemons={pokemons} />
+      <PokemonNamesMenu pokemons={pokemons} />
       <ul className={styles.pokemons}>{pokemons.map((pokemon, index) => (
         <Link to={`/pokemon/${index + 1}`}>
           <li className={styles.pokemons__pokemon} key={index}>
