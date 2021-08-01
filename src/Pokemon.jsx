@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Loader from 'react-loader-spinner';
 import { Link } from 'react-router-dom';
 import styles from './Pokemon.module.scss';
 
@@ -29,31 +30,43 @@ function Pokemon({ match }) {
       <Link to="/">
         Go back
       </Link>
-      {!isLoading && pokemon && (
-        <ul className={styles.pokemon}>
-          <li>
+      {!isLoading && pokemon ? (
+        <div className={styles.pokemon}>
+          <div>
             <b>
               {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
             </b>
-          </li>
-          <li>
+          </div>
+          <div>
             <img src={pokemon.sprites.front_default} />
-          </li>
-          <li><b>Height:</b> {pokemon.height}</li>
-          <li><b>Weight:</b> {pokemon.weight}</li>
-          <li>
-            <ul><b>Abilities:</b> {pokemon.abilities.map(ability => (
-              <li>- {ability.ability.name}</li>
-            ))}
-            </ul>
-          </li>
-          <li>
-            <ul><b>Types:</b> {pokemon.types.map(type => (
-              <li>- {type.type.name}</li>
-            ))}
-            </ul>
-          </li>
-        </ul>)}
+          </div>
+          <div className={styles.pokemon__content}>
+            <div><b>Height:</b> {pokemon.height}</div>
+            <div><b>Weight:</b> {pokemon.weight}</div>
+            <div>
+              <div><b>Abilities:</b> {pokemon.abilities.map(ability => (
+                <div>- {ability.ability.name}</div>
+              ))}
+              </div>
+            </div>
+            <div>
+              <div><b>Types:</b> {pokemon.types.map(type => (
+                <div>- {type.type.name}</div>
+              ))}
+              </div>
+            </div>
+          </div>
+        </div>) : (
+        <div className={styles.loader}>
+          <Loader
+            type="Oval"
+            color="#00BFFF"
+            height={400}
+            width={400}
+            timeout={3000} //3 secs
+          />
+        </div>
+      )}
     </>
   )
 }

@@ -11,6 +11,7 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  width: 40px;
 }
 
 a {
@@ -18,7 +19,11 @@ a {
   color: black;
 }
 
-a:hover {
-  color: rgb(197, 255, 104);
+li:hover {
+  color: rgba(81, 162, 255, 0.932);
+  font-weight: bold;
 }
 
+img {
+  width: 160px;
+}
