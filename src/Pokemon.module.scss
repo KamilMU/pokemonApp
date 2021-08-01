@@ -1,5 +1,18 @@
+.pokemonPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100vh;
+
+  a {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-weight: bold;
+  }
+}
 .pokemon {
-    margin: 50px auto;
     padding: 10px;
     box-shadow: 0 0 3px rgba(0,0,0,0.5);
     border-radius: 5px;
@@ -24,5 +37,5 @@
 }
 
 .loader {
-  margin: 0 auto;
+  margin: auto;
 }

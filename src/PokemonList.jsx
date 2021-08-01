@@ -24,9 +24,9 @@ function PokemonList() {
   }, []);
 
   return (
-    <div style={{ display: "flex", height: "100px", width: "100%" }}>
+    <div style={{ display: "flex", height:  "100vh" }}>
       <PokemonNamesMenu pokemons={pokemons} />
-      {pokemons.length ? <div className={styles.pokemons}>{pokemons.map((pokemon, index) => (
+      {pokemons.length !== 0 ? <div className={styles.pokemons}>{pokemons.map((pokemon, index) => (
         <>
           {pokemon ? (<Link to={`/pokemon/${index + 1}`}>
             <div className={styles.pokemons__pokemon} key={index}>
@@ -45,12 +45,12 @@ function PokemonList() {
         </>
       ))}
       </div> : (
-        <div className={styles.loader}>
+        <div style={{ margin: "auto" }}>
           <Loader
             type="Oval"
             color="#00BFFF"
-            height={400}
-            width={400}
+            height={200}
+            width={200}
             timeout={3000}
           />
         </div>

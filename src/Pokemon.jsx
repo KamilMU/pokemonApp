@@ -26,7 +26,7 @@ function Pokemon({ match }) {
   }, [id]);
 
   return (
-    <>
+    <div className={styles.pokemonPage}>
       <Link to="/">
         Go back
       </Link>
@@ -57,17 +57,15 @@ function Pokemon({ match }) {
             </div>
           </div>
         </div>) : (
-        <div className={styles.loader}>
-          <Loader
-            type="Oval"
-            color="#00BFFF"
-            height={400}
-            width={400}
-            timeout={3000} //3 secs
-          />
-        </div>
+        <Loader
+          type="Oval"
+          color="#00BFFF"
+          height={200}
+          width={200}
+          timeout={3000} //3 secs
+        />
       )}
-    </>
+    </div>
   )
 }
 
